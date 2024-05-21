@@ -15,9 +15,13 @@ struct ContentView: View {
                     Image(systemName: day.icon)
                     Text("\(day.high)° C")
                     Text(day.name)
+                    NavigationLink(day.name,value:day)
                 }
             }
             .navigationTitle("Kitchner ON")
+            .navigationDestination(for: Day.self) { day in
+                Text(day.name)
+            }
         }
     }
 }
