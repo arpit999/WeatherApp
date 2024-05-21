@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            List(Week.days, id: \.self){ day in
+                HStack{
+                    Image(systemName: day.icon)
+                    Text("\(day.high)° C")
+                    Text(day.name)
+                }
+            }
+            .navigationTitle("Kitchner ON")
         }
-        .padding()
     }
 }
 
