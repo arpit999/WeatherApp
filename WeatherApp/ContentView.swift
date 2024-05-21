@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             .navigationTitle("Kitchner ON")
             .navigationDestination(for: Day.self) { day in
-                Text(day.name)
+                Text(day.name).font(.title)
                 Button("More Info") {
                     isPresenting = true
                 }
