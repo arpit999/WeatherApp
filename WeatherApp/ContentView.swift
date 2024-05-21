@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationStack{
             List(Week.days, id: \.self){ day in
                 HStack{
-                    Image(systemName: day.icon)
+                    Image(systemName: day.icon).foregroundColor(day.color)
                     Text("\(day.high)° C")
                     NavigationLink(day.name, value:day)
                 }
@@ -24,10 +24,12 @@ struct ContentView: View {
                 Text(day.name)
                 Button("More Info") {
                     isPresenting = true
-                }.padding()
-                    .sheet(isPresented: $isPresenting, content: {
+                }
+                .padding()
+                .sheet(isPresented: $isPresenting, content: {
                         return Text("H \(day.high)° L \(day.low)° C")
-                    })
+                    }
+                )
             }
         }
     }
